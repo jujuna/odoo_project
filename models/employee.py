@@ -6,6 +6,7 @@ import re
 class Employee(models.Model):
     _name = 'employee.card'
     _description = 'Employee information'
+    _rec_name = 'first_name'
 
     first_name = fields.Char(String='First name', required=True)
     last_name = fields.Char(String='Last name', required=True)

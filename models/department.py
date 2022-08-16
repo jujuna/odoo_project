@@ -7,11 +7,14 @@ class EmployeeDepartment(models.Model):
 
     name = fields.Char(String='Name')
     parent_department = fields.Many2one(
-        'parent.department', String='Parent department'
+        'employee.department', String='Parent department'
     )
     compute_name = fields.Char(string='Name of object', compute='_compute_object_name')
 
     @api.depends('name', 'parent_department')
     def _compute_object_name(self):
         for field in self:
-            field.compute_name = field.parent_department.name + ' / ' + field.name
+            if field.parent_department.name:
+                field.compute_name = field.parent_department.name + ' / ' + field.name
+            else:
+                field.compute_name = field.name

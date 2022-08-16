@@ -9,7 +9,6 @@
     'depends': [],
     'data': [
         'views/department.xml',
-        'views/Parentdepartment.xml',
         'views/employee.xml',
         'views/feature.xml',
         'views/staytime.xml',
