@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<odoo>
+
+    <record id="time_action" model="ir.actions.act_window">
+        <field name="name">Stay time</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">stay.time</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record model="ir.ui.view" id="time_list">
+      <field name="name">Stay time</field>
+      <field name="model">stay.time</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="came"/>
+          <field name="went"/>
+          <field name="comment"/>
+        </tree>
+      </field>
+    </record>
+
+    <menuitem id="staytime_menu"
+      name="Stay time"
+      action="time_action"
+      sequence="0"/>
+
+
+</odoo>

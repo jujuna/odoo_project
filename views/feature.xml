@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<odoo>
+
+
+    <record id="feature_action" model="ir.actions.act_window">
+        <field name="name">Feature</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">employee.feature</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+
+    <menuitem id="feature_menu"
+      name="Feature"
+      action="feature_action"
+      sequence="0"/>
+
+
+</odoo>

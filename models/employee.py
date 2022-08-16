@@ -18,8 +18,15 @@ class Employee(models.Model):
     date_of_expiry = fields.Date(string='Date of expiry', required=True)
     place_of_birth = fields.Char(String='Place of birth', required=True)
     date_of_issue = fields.Date(String='Date of issue', required=True)
+    image = fields.Image(String='image')
     department = fields.Many2one(
         'employee.department', String='Department', required=True
+    )
+    features = fields.Many2many(
+        'employee.feature', String='Department'
+    )
+    stay_time = fields.One2many(
+        comodel_name='stay.time', inverse_name='employee', String='Stay time'
     )
 
     @api.constrains('personal_id')
