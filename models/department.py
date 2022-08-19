@@ -15,6 +15,6 @@ class EmployeeDepartment(models.Model):
     def _compute_object_name(self):
         for field in self:
             if field.parent_department.name:
-                field.compute_name = field.parent_department.compute_name + ' / ' + str(field.name)
+                field.compute_name = str(field.parent_department.compute_name) + ' / ' + str(field.name)
             else:
                 field.compute_name = field.name

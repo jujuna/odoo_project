@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<odoo>
+
+    <template id="employee_report">
+
+        <t t-call="web.basic_layout">
+
+            <t t-foreach="docs" t-as="event">
+                <div>
+                    <div class="col-xs-6">
+                        <img t-att-src="'data:image/png;base64,%s' % to_text(event.image)"/>
+                        <br></br>
+                        <h5>
+                            <span>First name:
+                                <span t-field="event.first_name"/>
+                            </span>
+                        </h5>
+                        <br></br>
+                        <h5>
+                            <span>Last name:
+                                <span t-field="event.last_name"/>
+                            </span>
+                        </h5>
+                        <br></br>
+                        <h5>
+                            <span>Personal ID:
+                                <span t-field="event.personal_id"/>
+                            </span>
+                        </h5>
+                        <br></br>
+                        <h5>
+                            <span>Citizenship:
+                                <span t-field="event.citizenship"/>
+                            </span>
+                        </h5>
+                        <br></br>
+                        <h5>
+                            <span>Gender:
+                                <span t-field="event.gender"/>
+                            </span>
+                        </h5>
+                        <br></br>
+                        <h5>
+                            <span>Date_of_expiry:
+                                <span t-field="event.date_of_expiry"/>
+                            </span>
+                        </h5>
+                        <br></br>
+                        <h5>
+                            <span>Place_of_birth:
+                                <span t-field="event.place_of_birth"/>
+                            </span>
+                        </h5>
+                        <br></br>
+                        <h5>
+                            <span>Date_of_issue:
+                                <span t-field="event.date_of_issue"/>
+                            </span>
+                        </h5>
+                        <br></br>
+                    </div>
+
+                    <div class="features">
+                        <strong>Features:
+                            <t t-foreach="event.features" t-as="feature">
+                                <span t-field="feature.name"/>
+                            </t>
+                        </strong>
+                    </div>
+                    <br></br>
+
+                    <div class="department">
+                        <strong>Department:
+                            <t t-foreach="event.department" t-as="department">
+                                <span t-field="department.name"/>
+                            </t>
+                        </strong>
+                    </div>
+                    <br></br>
+
+                    <div class="staytime">
+                        <t t-foreach="event.stay_time" t-as="stay">
+                            <strong style="margin-right:2%;">Came:
+                                <span t-field="stay.came"/>
+                            </strong>
+                            <strong style="margin-right:2%;" >Went:
+                                <span t-field="stay.went"/>
+                            </strong>
+                            <strong style="margin-right:2%;" >Comment:
+                                <span t-field="stay.comment"/>
+                            </strong>
+                        </t>
+                    </div>
+
+                </div>
+            </t>
+        </t>
+    </template>
+
+</odoo>

@@ -12,6 +12,8 @@
         'views/employee.xml',
         'views/feature.xml',
         'views/staytime.xml',
+        'report/employee.xml',
+        'report/employee_report.xml',
     ],
     'application': True,
     'auto_install': False,

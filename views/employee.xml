@@ -1,34 +1,11 @@
 <?xml version="1.0" encoding="utf-8" ?>
 
 <odoo>
-    <record model="ir.ui.view" id="employee_list">
-        <field name="name">Employee list</field>
-        <field name="model">employee.card</field>
-        <field name="arch" type="xml">
-            <tree>
-                <field name="first_name"/>
-                <field name="last_name"/>
-                <field name="personal_id"/>
-                <field name="date_of_birth"/>
-                <field name="department"/>
-                <field name="image" widget="image" class="oe_avatar"/>
-                <field name="stay_time">
-                    <tree editbale="bottom">
-                        <field name="came"/>
-                        <field name="went"/>
-                        <field name="comment"/>
-                    </tree>
-                </field>
-            </tree>
-        </field>
-    </record>
-
     <record id="employee_action" model="ir.actions.act_window">
         <field name="name">Employee</field>
         <field name="type">ir.actions.act_window</field>
         <field name="res_model">employee.card</field>
-        <field name="view_mode">tree,form</field>
-
+        <field name="view_mode">tree,kanban</field>
     </record>
 
     <menuitem id="employee_menu"
@@ -36,4 +13,89 @@
               action="employee_action"
               sequence="0"/>
 
+    <record id="employees_card_tree" model="ir.ui.view">
+        <field name="name">employees.card.form</field>
+        <field name="model">employee.card</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="first_name"/>
+                <field name="last_name"/>
+                <field name="personal_id"/>
+                <field name="department"/>
+                <field name="image" widget="image" class="oe_avatar"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="employees_card_form" model="ir.ui.view">
+        <field name="name">Employee list</field>
+        <field name="model">employee.card</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="first_name"/>
+                            <field name="last_name"/>
+                            <field name="personal_id"/>
+                            <field name="citizenship"/>
+                            <field name="gender"/>
+                            <field name="date_of_expiry"/>
+                            <field name="date_of_birth"/>
+                        </group>
+                    </group>
+                    <group>
+                        <group>
+                            <field name="place_of_birth"/>
+                            <field name="date_of_issue"/>
+                            <field name="department"/>
+                            <field name="image" widget="image" class="oe_avatar"/>
+                            <field name="features"/>
+                            <field name="stay_time">
+                                <tree editable="bottom">
+                                    <field name="came"/>
+                                    <field name="went"/>
+                                    <field name="comment"/>
+                                </tree>
+                            </field>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="employee_view_kanban" model="ir.ui.view">
+        <field name="name">employee.view.kanban</field>
+        <field name="model">employee.card</field>
+        <field name="arch" type="xml">
+            <kanban>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div class="click_kanban_box">
+                            <ul>First name:
+                                <Strong>
+                                    <field name="first_name"/>
+                                </Strong>
+                            </ul>
+                            <ul>Last name:
+                                <Strong>
+                                    <field name="last_name"/>
+                                </Strong>
+                            </ul>
+                            <ul>Personal ID:
+                                <Strong>
+                                    <field name="personal_id"/>
+                                </Strong>
+                            </ul>
+                            <ul>Image:
+                                <field name="image" widget="image"/>
+                            </ul>
+
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
 </odoo>

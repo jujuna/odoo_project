@@ -24,7 +24,7 @@ class Employee(models.Model):
         'employee.department', String='Department', required=True
     )
     features = fields.Many2many(
-        'employee.feature', String='Department'
+        comodel_name='employee.feature', inverse_name='employee', String='Department'
     )
     stay_time = fields.One2many(
         comodel_name='stay.time', inverse_name='employee', String='Stay time'
