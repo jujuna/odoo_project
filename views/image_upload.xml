@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<odoo>
+    <record id="image_upload_action" model="ir.actions.act_window">
+        <field name="name">Image upload</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">images.upload</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+
+    <record model="ir.ui.view" id="image_upload_list">
+        <field name="name">Image upload</field>
+        <field name="model">images.upload</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="image" widget="image"/>
+            </tree>
+        </field>
+    </record>
+
+    <menuitem id="image_upload_menu"
+              name="Image upload"
+              action="image_upload_action"
+              sequence="0"/>
+
+
+</odoo>

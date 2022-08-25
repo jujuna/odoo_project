@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<odoo>
+    <record model="ir.ui.view" id="images_list">
+        <field name="name">Images</field>
+        <field name="model">images.gallery</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="image" widget="gallery"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="images_gallery" model="ir.ui.view">
+        <field name="name">Image gallery</field>
+        <field name="model">images.gallery</field>
+        <field name="arch" type="xml">
+            <form>
+                <field name="image" widget="gallery"/>
+            </form>
+        </field>
+    </record>
+
+
+    <record id="image_action" model="ir.actions.act_window">
+        <field name="name">Images</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">images.gallery</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_ids" eval="[(5, 0, 0),
+                (0, 0, {'view_mode': 'tree', 'view_id': ref('images_list')}),
+                (0, 0, {'view_mode': 'form', 'view_id': ref('images_gallery')})]"/>
+    </record>
+
+    <menuitem id="image_menu"
+              name="Image"
+              action="image_action"
+              sequence="0"/>
+
+
+</odoo>

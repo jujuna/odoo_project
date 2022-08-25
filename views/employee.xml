@@ -21,8 +21,7 @@
                 <field name="first_name"/>
                 <field name="last_name"/>
                 <field name="personal_id"/>
-                <field name="department"/>
-                <field name="image" widget="image" class="oe_avatar"/>
+                <field name="gender" widget="gender_icon"/>
             </tree>
         </field>
     </record>
@@ -35,11 +34,12 @@
                 <sheet>
                     <group>
                         <group>
+                            <field name="test" widget="int_color"/>
                             <field name="first_name"/>
                             <field name="last_name"/>
                             <field name="personal_id"/>
                             <field name="citizenship"/>
-                            <field name="gender"/>
+                            <field name="gender" widget="gender_icon"/>
                             <field name="date_of_expiry"/>
                             <field name="date_of_birth"/>
                         </group>
