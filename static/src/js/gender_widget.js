@@ -37,9 +37,6 @@ var genderField = AbstractField.extend({
     },
 
     ClickGender: function (ev) {
-        var target = $(ev.currentTarget);
-        var selected_data = $(ev.currentTarget).find(':selected').attr("text");
-        console.log(ev.currentTarget.value);
         this._setValue(ev.currentTarget.value);
 
     }
